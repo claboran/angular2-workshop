@@ -1,0 +1,13 @@
+<p>
+  {{name}} book-list works!
+
+
+</p>
+<div [hidden]="isHidden">This is my box</div>
+<button (click)="isHidden=!isHidden">Hide me</button>
+
+
+<div (mousemove)="mouseMove($event)" style="border: 1px solid black; width: 240px; height: 140px">This is my box</div>
+<div>
+  x: {{x}}, y: {{y}}
+</div>
