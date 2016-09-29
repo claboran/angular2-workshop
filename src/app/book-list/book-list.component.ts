@@ -1,4 +1,5 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {BookDataService} from "../shared/book-data.service";
 
 @Component({
   selector: 'book-list',
@@ -11,17 +12,13 @@ export class BookListComponent implements OnInit {
   y:              number;
   @Input() title: string;
   @Output() titleClicked = new EventEmitter<MouseEvent>();
+  books: any;
 
-  books = [
-    {title: 'Design Patterns', isbn: '978-0-20163-361-0', author: 'Erich Gamma / Richard Helm / Ralph E. Johnson / John Vlissides'},
-    {title: 'REST und HTTP', isbn: '978-3-86490-120-1', author: 'Stefan Tilkov / Martin Eigenbrodt / Silvia Schreier / Oliver Wolf'},
-    {title: 'Eloquent JavaScript', isbn: '978-1-59327-584-6', author: 'Marijn Haverbeke'}
-  ];
-
-  constructor() {
+  constructor(private bookDataService: BookDataService) {
     this.name = 'Christian';
     this.x = 0;
     this.y = 0;
+    this.books = bookDataService.getBooks();
   }
 
   ngOnInit() {
