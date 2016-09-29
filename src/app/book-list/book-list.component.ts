@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'book-list',
@@ -6,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./book-list.component.css']
 })
 export class BookListComponent implements OnInit {
-  name: string
-  x: number;
-  y: number;
+  name:           string;
+  x:              number;
+  y:              number;
+  @Input() title: string;
+  @Output() titleClicked = new EventEmitter<MouseEvent>();
 
   constructor() {
     this.name = 'Christian';
@@ -22,5 +24,9 @@ export class BookListComponent implements OnInit {
   mouseMove(event: MouseEvent): void {
     this.x = event.offsetX;
     this.y = event.offsetY;
+  }
+
+  sendTitleClicked(event: MouseEvent): void {
+    this.titleClicked.emit(event);
   }
 }

@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+
+  handleTitleEvent(mouseEvent: MouseEvent): void {
+    console.log(`Event - X: ${mouseEvent.offsetX}, Y: ${mouseEvent.offsetY}, MouseKey: ${mouseEvent.buttons}`);
+  }
 }
