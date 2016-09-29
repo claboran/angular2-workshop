@@ -13,13 +13,15 @@ export class BookListComponent implements OnInit {
   y:              number;
   @Input() title: string;
   @Output() titleClicked = new EventEmitter<MouseEvent>();
-  books: Array<Book>;
+  books: Book[] = [];
 
   constructor(private bookDataService: BookDataService) {
     this.name = 'Christian';
     this.x = 0;
     this.y = 0;
-    this.books = bookDataService.getBooks();
+    bookDataService.getBooks().subscribe((books: Book[]) =>  {
+       this.books = books;
+     });
   }
 
   ngOnInit() {
