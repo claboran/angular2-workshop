@@ -6,16 +6,20 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { BookListComponent } from './book-list/book-list.component';
 import {BookDataService} from "./shared/book-data.service";
+import {WorkshopRoutingModule} from "./app-routing.module";
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BookListComponent // is known in the whole module
+    BookListComponent,
+    PageNotFoundComponent // is known in the whole module
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    WorkshopRoutingModule
   ],
   providers: [BookDataService],
   bootstrap: [AppComponent]
