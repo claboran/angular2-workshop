@@ -1,5 +1,6 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {BookDataService} from "../shared/book-data.service";
+import {Book} from "../shared/book";
 
 @Component({
   selector: 'book-list',
@@ -12,7 +13,7 @@ export class BookListComponent implements OnInit {
   y:              number;
   @Input() title: string;
   @Output() titleClicked = new EventEmitter<MouseEvent>();
-  books: any;
+  books: Array<Book>;
 
   constructor(private bookDataService: BookDataService) {
     this.name = 'Christian';
@@ -22,6 +23,7 @@ export class BookListComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('I am in onInit');
   }
 
   mouseMove(event: MouseEvent): void {
