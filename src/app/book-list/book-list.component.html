@@ -12,3 +12,17 @@
   x: {{x}}, y: {{y}}
 </div>
 <h3 (mousedown)="sendTitleClicked($event)">{{title}}</h3>
+
+<table>
+
+  <thead>
+    <td>Title</td>
+    <td>ISBN</td>
+    <td>Author</td>
+  </thead>
+    <tr *ngFor="let book of books">
+      <td>{{book.title}}</td>
+      <td>{{book.isbn}}</td>
+      <td>{{book.author}}</td>
+    </tr>
+</table>
