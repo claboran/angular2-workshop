@@ -4,26 +4,23 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { BookListComponent } from './book-list/book-list.component';
-import {BookDataService} from "./shared/book-data.service";
 import {WorkshopRoutingModule} from "./app-routing.module";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { BookDetailComponent } from './book-detail/book-detail.component';
+import {BookModule} from "./book/book.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    BookListComponent,
     PageNotFoundComponent,
-    BookDetailComponent // is known in the whole module
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    WorkshopRoutingModule
+    WorkshopRoutingModule,
+    BookModule
   ],
-  providers: [BookDataService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

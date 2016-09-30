@@ -6,8 +6,8 @@ import 'rxjs/add/operator/mergeMap';
 
 @Component({
   selector: 'book-detail',
-  templateUrl: './book-detail.component.html',
-  styleUrls: ['./book-detail.component.css']
+  templateUrl: 'book-detail.component.html',
+  styleUrls: ['book-detail.component.css']
 })
 @Injectable()
 export class BookDetailComponent implements OnInit {
