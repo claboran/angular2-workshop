@@ -6,13 +6,15 @@ import {BookListComponent} from "./book-list/book-list.component";
 import {BookDetailComponent} from "./book-detail/book-detail.component";
 import {NgModule} from "@angular/core/src/metadata/ng_module";
 import {BookComponent} from "./book.component";
+import {ConfirmCandeactivateGuardService} from "./shared/confirm-candeactivate-guard.service";
 
 const routes: Routes = [
   {path: 'books',
     component: BookComponent,
     children: [{
       component: BookListComponent,
-      path: ''
+      path: '',
+      canDeactivate: [ConfirmCandeactivateGuardService]
     },
       {
       component: BookDetailComponent,
