@@ -2,6 +2,7 @@ import {Component, OnInit, Injectable} from '@angular/core';
 import {BookDataService} from "../shared/book-data.service";
 import {Book} from "../shared/book";
 import {ActivatedRoute} from "@angular/router";
+import 'rxjs/add/operator/mergeMap';
 
 @Component({
   selector: 'book-detail',
@@ -19,13 +20,8 @@ export class BookDetailComponent implements OnInit {
   ngOnInit() {
     this.route
       .params
-      .subscribe((params: {isbn: string}) => {//workaround to get a valid type for Webstorm
-        console.log('params: ', params);
-        this.bookDataService.getBooksByIsbn(params.isbn)
-          .subscribe((book: Book) => {
-            this.book = book;
-          });
-      });
+      .mergeMap((params: {isbn: string}) => this.bookDataService.getBooksByIsbn(params.isbn))
+      .subscribe((book: Book) => this.book = book);
   }
 
 }
