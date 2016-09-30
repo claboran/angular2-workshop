@@ -11,15 +11,17 @@ import {ActivatedRoute} from "@angular/router";
 @Injectable()
 export class BookDetailComponent implements OnInit {
 
-  book: Book = {title: '', author: '', isbn: ''};
+  book: Book = {title: '', author: '', isbn: ''}; // initialize the book
+
+
   constructor(private route: ActivatedRoute, private bookDataService: BookDataService) { }
 
   ngOnInit() {
     this.route
       .params
-      .subscribe((params) => {
+      .subscribe((params: {isbn: string}) => {//workaround to get a valid type for Webstorm
         console.log('params: ', params);
-        this.bookDataService.getBooksByIsbn(params['isbn'])
+        this.bookDataService.getBooksByIsbn(params.isbn)
           .subscribe((book: Book) => {
             this.book = book;
           });
