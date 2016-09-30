@@ -9,6 +9,7 @@ import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {BookRoutingModule} from "./book.routing";
 import {ConfirmCandeactivateGuardService} from "./shared/confirm-candeactivate-guard.service";
+import { BookEditComponent } from './book-edit/book-edit.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import {ConfirmCandeactivateGuardService} from "./shared/confirm-candeactivate-g
   ],
   declarations: [BookComponent,
     BookListComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    BookEditComponent
   ],
   providers: [BookDataService, ConfirmCandeactivateGuardService]
 })

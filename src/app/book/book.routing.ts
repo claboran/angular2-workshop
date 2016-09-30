@@ -7,6 +7,7 @@ import {BookDetailComponent} from "./book-detail/book-detail.component";
 import {NgModule} from "@angular/core/src/metadata/ng_module";
 import {BookComponent} from "./book.component";
 import {ConfirmCandeactivateGuardService} from "./shared/confirm-candeactivate-guard.service";
+import {BookEditComponent} from "./book-edit/book-edit.component";
 
 const routes: Routes = [
   {path: 'books',
@@ -19,6 +20,10 @@ const routes: Routes = [
       {
       component: BookDetailComponent,
         path: ':isbn'
+      },
+      {
+        component: BookEditComponent,
+        path: ':isbn/edit'
       }
     ]}
 ];

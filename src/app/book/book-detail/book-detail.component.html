@@ -9,7 +9,7 @@
     </thead>
     <tr>
       <td>{{book.title}}</td> <!-- {{book?.title}}  Elvis operator to avoid problems while book is loading could be {{book && book.title}}-->
-      <td>{{book.isbn}}</td>
+      <td>{{book.isbn}} <a [routerLink]="['edit']">Edit</a></td>
       <td>{{book.author}}</td>
     </tr>
   </table>
