@@ -17,4 +17,8 @@ export class BookDataService  {
       .map(response => response.json());
   }
 
+  getBooksByIsbn(isbn: string): Observable<Book> {
+    return this.http.get('http://localhost:4730/books/' + isbn)
+      .map(response => response.json());
+  }
 }
